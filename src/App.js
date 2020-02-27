@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Person from './Pereson/Person'
 
 function App() {
   return (
     <div className="App">
+      <Person />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,6 +19,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          {5+5}
         </a>
       </header>
     </div>
