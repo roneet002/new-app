@@ -1,29 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Person from './Pereson/Person'
+import React, { Component } from 'react';
+import './Person/Person.css'
 
-function App() {
-  return (
-    <div className="App">
-      <Person />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          {5+5}
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Person from './Person/Person'
+class App extends Component{
+constructor(props){
+  super(props);
+  this.state={
+    Person:[
+      {id:'abc1', name:"Amit Kumar", age:32},
+      {id:'abc2', name:"Mahendere", age:30},
+      {id:'abc3', name:"Mady Algan", age:28}
+    ],
+    showToggle:false
+  }
 }
+clickHandler=()=>{
+  
+  const showToggle = this.state.showToggle;
+this.setState({
+  showToggle:!showToggle
+})
+}
+
+render(){
+let showToggle = null;
+if(this.state.showToggle){
+  showToggle = (
+<div>
+<Person>this is something children props</Person>
+<Person></Person>
+<Person></Person>
+</div>
+  )
+}
+  return(
+  <div className="App">
+    <button type="button" className="toggleBtn" onClick={this.clickHandler}>card Toggle</button>
+{showToggle}
+</div>
+
+
+)
+
+}
+
+}
+
+
 
 export default App;
