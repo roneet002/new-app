@@ -28,9 +28,9 @@ let showToggle = null;
 if(this.state.showToggle){
   showToggle = (
 <div>
-<Person>this is something children props</Person>
-<Person></Person>
-<Person></Person>
+<Person name="Amit Kumar" age="36">this is something children props</Person>
+<Person name="Kishan Kumar" age="31"></Person>
+<Person name="Manish Kumar" age="30"></Person>
 </div>
   )
 }

@@ -8,7 +8,7 @@ return(
 {props.children}
 <span className="close">Close</span>
 <br/>
-<input type="text"/>
+<input type="text" />
 </div>
 )
 }
