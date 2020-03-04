@@ -16,11 +16,37 @@ constructor(props){
   }
 }
 clickHandler=()=>{
-  
-  const showToggle = this.state.showToggle;
+const showToggle = this.state.showToggle;
 this.setState({
   showToggle:!showToggle
 })
+}
+
+onchangeHandler=(event, id)=>{
+const personIndex = this.state.Person.findIndex((p)=>{
+return p.id===id
+})
+const Person = {...this.state.Person[personIndex]}
+Person.name=event.target.value;
+
+const Persons = [...this.state.Person]
+Persons[personIndex]=Person
+this.setState({
+  Person:Persons
+
+})  
+}
+
+ 
+
+
+DeletePersonHandler=(personIndex)=>{
+const Person = [...this.state.Person];
+Person.splice(personIndex, 1);
+this.setState({
+Person : Person
+})
+
 }
 
 render(){
@@ -28,9 +54,20 @@ let showToggle = null;
 if(this.state.showToggle){
   showToggle = (
 <div>
-<Person>this is something children props</Person>
-<Person></Person>
-<Person></Person>
+  {this.state.Person.map((p, index)=>{
+    return(
+    <Person
+    key={p.id}
+    change={(event)=>{this.onchangeHandler(event, p.id)}}
+    name={p.name}
+    age={p.age}
+    deleteClick={(index)=>{this.DeletePersonHandler(index)}}    
+    />
+    
+    )
+    }
+    )
+  }
 </div>
   )
 }

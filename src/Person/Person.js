@@ -6,9 +6,9 @@ return(
 <div className="Person">
 <p>I am  a {props.name}  and i am {props.age} years old</p>
 {props.children}
-<span className="close">Close</span>
+<span className="close" onClick={props.deleteClick}>Close</span>
 <br/>
-<input type="text"/>
+<input type="text" onChange={props.change} value={props.name}/>
 </div>
 )
 }
