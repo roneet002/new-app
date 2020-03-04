@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './Person/Person.css'
-
 import './App.css';
 import Person from './Person/Person'
 class App extends Component{
@@ -21,6 +19,24 @@ this.setState({
   showToggle:!showToggle
 })
 }
+switchNameHandler=(newName)=>{
+this.setState({
+  Person:[
+    {id:'abc1', name:newName, age:40},
+    {id:'abc2', name:"Mahender", age:30},
+    {id:'abc3', name:"Mady Algan", age:28}
+  ]
+})
+}
+NameChangeHandler=(event)=>{
+  this.setState({
+    Person:[
+      {id:'abc1', name:event.target.value, age:40},
+      {id:'abc2', name:"Mahender", age:30},
+      {id:'abc3', name:"Mady Algan", age:28}
+    ]
+  })
+  }
 
 onchangeHandler=(event, id)=>{
 const personIndex = this.state.Person.findIndex((p)=>{
@@ -50,10 +66,15 @@ Person : Person
 }
 
 render(){
+
+
+
+
 let showToggle = null;
 if(this.state.showToggle){
   showToggle = (
 <div>
+
   {this.state.Person.map((p, index)=>{
     return(
     <Person

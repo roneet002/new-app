@@ -9,6 +9,7 @@ return(
 <span className="close" onClick={props.deleteClick}>Close</span>
 <br/>
 <input type="text" onChange={props.change} value={props.name}/>
+
 </div>
 )
 }
