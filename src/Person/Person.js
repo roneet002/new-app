@@ -10,6 +10,8 @@ return(
 <br/>
 <input type="text" onChange={props.change} value={props.name}/>
 
+
+
 </div>
 )
 }

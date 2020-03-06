@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import UserInput from './Person/UserInput';
+
 class App extends Component{
 constructor(props){
   super(props);
@@ -10,7 +12,8 @@ constructor(props){
       {id:'abc2', name:"Mahendere", age:30},
       {id:'abc3', name:"Mady Algan", age:28}
     ],
-    showToggle:false
+    showToggle:false,
+    username:'Amit Kumar'
   }
 }
 clickHandler=()=>{
@@ -52,10 +55,6 @@ this.setState({
 
 })  
 }
-
- 
-
-
 DeletePersonHandler=(personIndex)=>{
 const Person = [...this.state.Person];
 Person.splice(personIndex, 1);
@@ -65,10 +64,19 @@ Person : Person
 
 }
 
+newUserInput=(eventNew)=>{
+this.setState({
+username:eventNew.target.value
+})
+}
 render(){
-
-
-
+const classes=[];
+if (this.state.Person.length >= 2){
+classes.push('toggleBtn')
+}
+if (this.state.Person.length <= 2){
+  classes.push('black')
+  }
 
 let showToggle = null;
 if(this.state.showToggle){
@@ -82,20 +90,29 @@ if(this.state.showToggle){
     change={(event)=>{this.onchangeHandler(event, p.id)}}
     name={p.name}
     age={p.age}
-    deleteClick={(index)=>{this.DeletePersonHandler(index)}}    
-    />
+    deleteClick={(index)=>{this.DeletePersonHandler(index)}}     
+    />    
     
     )
     }
     )
   }
+  <UserInput username={this.state.username}
+  changed={(eventNew)=>{this.newUserInput(eventNew)}}
+  InputLength={this.state.username.length}
+  />
 </div>
   )
+  
 }
+
   return(
   <div className="App">
-    <button type="button" className="toggleBtn" onClick={this.clickHandler}>card Toggle</button>
+    <button type="button" className={classes.join(' ')} onClick={this.clickHandler}>card Toggle</button>
 {showToggle}
+
+
+
 </div>
 
 
