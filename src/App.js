@@ -37,7 +37,6 @@ NameChangeHandler=(event)=>{
     ]
   })
   }
-
 onchangeHandler=(event, id)=>{
 const personIndex = this.state.Person.findIndex((p)=>{
 return p.id===id
@@ -52,10 +51,6 @@ this.setState({
 
 })  
 }
-
- 
-
-
 DeletePersonHandler=(personIndex)=>{
 const Person = [...this.state.Person];
 Person.splice(personIndex, 1);
@@ -64,6 +59,23 @@ Person : Person
 })
 
 }
+
+newchangeHandler=(event, id)=>{
+  const personFindIndex = this.state.Person.findIndex((p)=>{
+    return(p.id===id)
+})
+const Person = {...this.state.Person[personFindIndex]}
+Person.name=event.target.value
+const Persons = [...this.state.Person]
+Persons[personFindIndex]=Person
+this.setState({
+Person:Persons
+})
+
+
+}
+
+
 
 render(){
 
@@ -96,6 +108,8 @@ if(this.state.showToggle){
   <div className="App">
     <button type="button" className="toggleBtn" onClick={this.clickHandler}>card Toggle</button>
 {showToggle}
+<input type="text" onChange={(event)=>{this.newchangeHandler(event, Person.id)}} />
+{this.state.Person.name}
 </div>
 
 
