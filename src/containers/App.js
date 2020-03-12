@@ -72,27 +72,6 @@ Person:Persons
 render(){
 let showToggle = null;
 if(this.state.showToggle){
-  showToggle = (
-<div>
-  {this.state.Person.map((p, index)=>{
-    return(
-    <Person
-    key={p.id}
-    change={(event)=>{this.onchangeHandler(event, p.id)}}
-    name={p.name}
-    age={p.age}
-    deleteClick={(index)=>{this.DeletePersonHandler(index)}}   
-    />   
-    )
-    }
-    )
-  }
-</div>
-  )
-
-render(){
-let showToggle = null;
-if(this.state.showToggle){
   showToggle = <Persons  Person={this.state.Person} clicked={this.onchangeHandler} changed={this.DeletePersonHandler} />
 
 }
@@ -103,14 +82,14 @@ return(
     {showToggle}
     <input type="text" onChange={(event)=>{this.newchangeHandler(event, Person.id)}} />
     {this.state.Person.name}
-    </div>
-
-
-)
-
     <Cockpit clicking={this.clickHandler} Person={this.state.Person} />
     {showToggle}
   </div>
+
+
+
+
+   
   )
 
 }
