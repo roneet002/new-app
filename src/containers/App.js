@@ -1,42 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Persons from '../components/Persons'
+import Cockpit from  '../components/Cockpit/Cockpit'
+
 class App extends Component{
 constructor(props){
-  super(props);
+  super(props)
   this.state={
     Person:[
       {id:'abc1', name:"Amit Kumar", age:32},
       {id:'abc2', name:"Mahendere", age:30},
       {id:'abc3', name:"Mady Algan", age:28}
     ],
-    showToggle:false
+    showToggle:false,
+    username:'Amit Kumar'
   }
 }
+static getDerivedStateFromProps(props, state){
+  console.log('[App.js] getDerivedStateFromProps')
+  return state
+  }
+
 clickHandler=()=>{
 const showToggle = this.state.showToggle;
 this.setState({
   showToggle:!showToggle
 })
 }
-switchNameHandler=(newName)=>{
-this.setState({
-  Person:[
-    {id:'abc1', name:newName, age:40},
-    {id:'abc2', name:"Mahender", age:30},
-    {id:'abc3', name:"Mady Algan", age:28}
-  ]
-})
-}
-NameChangeHandler=(event)=>{
-  this.setState({
-    Person:[
-      {id:'abc1', name:event.target.value, age:40},
-      {id:'abc2', name:"Mahender", age:30},
-      {id:'abc3', name:"Mady Algan", age:28}
-    ]
-  })
-  }
+
 onchangeHandler=(event, id)=>{
 const personIndex = this.state.Person.findIndex((p)=>{
 return p.id===id
@@ -59,6 +50,7 @@ Person : Person
 })
 
 }
+
 
 newchangeHandler=(event, id)=>{
   const personFindIndex = this.state.Person.findIndex((p)=>{
@@ -97,9 +89,16 @@ if(this.state.showToggle){
   }
 </div>
   )
+
+render(){
+let showToggle = null;
+if(this.state.showToggle){
+  showToggle = <Persons  Person={this.state.Person} clicked={this.onchangeHandler} changed={this.DeletePersonHandler} />
+
 }
-  return(
+return(
   <div className="App">
+
     <button type="button" className="toggleBtn" onClick={this.clickHandler}>card Toggle</button>
     {showToggle}
     <input type="text" onChange={(event)=>{this.newchangeHandler(event, Person.id)}} />
@@ -109,8 +108,12 @@ if(this.state.showToggle){
 
 )
 
-}
+    <Cockpit clicking={this.clickHandler} Person={this.state.Person} />
+    {showToggle}
+  </div>
+  )
 
+}
 }
 
 
