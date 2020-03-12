@@ -78,15 +78,10 @@ Person:Persons
 
 
 render(){
-
-
-
-
 let showToggle = null;
 if(this.state.showToggle){
   showToggle = (
 <div>
-
   {this.state.Person.map((p, index)=>{
     return(
     <Person
@@ -94,9 +89,8 @@ if(this.state.showToggle){
     change={(event)=>{this.onchangeHandler(event, p.id)}}
     name={p.name}
     age={p.age}
-    deleteClick={(index)=>{this.DeletePersonHandler(index)}}    
-    />
-    
+    deleteClick={(index)=>{this.DeletePersonHandler(index)}}   
+    />   
     )
     }
     )
@@ -107,10 +101,10 @@ if(this.state.showToggle){
   return(
   <div className="App">
     <button type="button" className="toggleBtn" onClick={this.clickHandler}>card Toggle</button>
-{showToggle}
-<input type="text" onChange={(event)=>{this.newchangeHandler(event, Person.id)}} />
-{this.state.Person.name}
-</div>
+    {showToggle}
+    <input type="text" onChange={(event)=>{this.newchangeHandler(event, Person.id)}} />
+    {this.state.Person.name}
+    </div>
 
 
 )
