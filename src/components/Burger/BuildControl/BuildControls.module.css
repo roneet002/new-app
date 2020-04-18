@@ -1,0 +1,48 @@
+.BgRow{background-color:cornflowerblue;padding:10px 0;display:block;}
+.price{font-weight: bold;font-size: 18px;color:#1350be;}
+.OrderButton {
+    background-color: #033eaa;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #005aff;
+    color: #fff;
+    font-family: inherit;width: 30%;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    box-shadow: 2px 2px 2px #005aff;
+}
+
+.OrderButton:hover, .OrderButton:active {
+    background-color: #033eaa;
+    border: 1px solid #005aff;
+    color: #fff;
+}
+
+.OrderButton:disabled {
+    background-color: #808080;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    color: #eee;
+    box-shadow: 2px 2px 2px #767575;
+
+}
+
+.OrderButton:not(:disabled) {
+    animation: enable 0.3s linear;
+}
+
+@keyframes enable {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media (max-width:767px){
+.OrderButton{width:90%;}
+
+}

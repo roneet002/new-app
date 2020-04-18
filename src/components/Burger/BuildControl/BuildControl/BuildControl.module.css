@@ -1,0 +1,9 @@
+.controlsBtn{background-color:#1350be;color:#fff;padding:8px 24px;display:block;border:0;border-radius:3px;}
+.controlsBtn:disabled{background-color: grey;}
+.wdth{width:30%;text-align:center;display:flex;align-items:center;margin:10px auto;justify-content:space-between}
+.wdth > div{width:20%;text-align: right;}
+
+@media(max-width:767px){
+    .wdth{width:90%}
+
+}

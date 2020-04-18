@@ -1,0 +1,12 @@
+.logo{height:80%;border-radius:15px;width:40px;background-color:#fff;padding:10px 20px}
+
+@media(max-width:767px){
+
+ .logo{   height: 50%;
+    border-radius: 5px;
+    width: 37px;
+    background-color: #fff;
+    padding: 10px;
+}
+    
+}

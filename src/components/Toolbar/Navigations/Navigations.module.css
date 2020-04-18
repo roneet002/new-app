@@ -1,0 +1,7 @@
+.dp{align-items: center;display: flex;margin: 0;padding: 0;height: 100%;line-height:33px;}
+
+@media (max-width:767px){
+    .dp{display: block;background-color:#cde0ff;margin-top:20px}
+        
+    }
+    

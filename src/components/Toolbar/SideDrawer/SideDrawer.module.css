@@ -1,0 +1,8 @@
+
+.SideDrawer{background-color: #fff;position: fixed;top: 0;bottom: 0;width: 70%;z-index: 1;transition: all 0.3s ease-in-out;}
+.open{transform: translateX(0%);}
+.close{transform: translateX(-100%);}
+@media(min-width:768px){
+.hideDesktop{display: none;}
+
+}

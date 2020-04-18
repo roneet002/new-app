@@ -1,0 +1,7 @@
+header{background-color:#1350be;height: 56px;padding:0px 15px;margin-bottom:20px;display: flex;align-items: center;justify-content: space-between;}
+
+@media(max-width:767px){
+.NavHide{display: none;}
+
+
+}
