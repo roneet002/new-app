@@ -4,8 +4,9 @@ import classes from '../Navigations/Navigations.module.css'
 const Navigations =(props)=>{
     return(
         <ul className={classes.dp}>
-            <Navigation active link="/">Checkout</Navigation>
-            <Navigation link="/cart">cart</Navigation>
+            <Navigation link="/" exact>Burger Builder</Navigation>
+            <Navigation active link="/orders">Orders</Navigation>
+            
         </ul>
     )
 }

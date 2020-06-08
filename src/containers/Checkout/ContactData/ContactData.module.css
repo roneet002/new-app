@@ -1,0 +1,11 @@
+.form {
+    margin: 20px auto;
+    display: table;
+    text-align: center;
+    box-shadow: 2px 1px 14px -2px #ccc;
+    background: #fff;
+    padding: 25px;
+}
+
+
+.center{margin:30px auto;display: table;}

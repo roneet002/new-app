@@ -1,0 +1,5 @@
+
+.box{margin: 10px;box-shadow: -1px 0px 5px #ccc;padding:10px 20px;border:1px solid #ededed;text-align: left;font-size: 13px;line-height: 20px;}
+.ingbox{border:1px solid #eee;padding:4px;margin-right:5px;}
+.pr strong{display: block;margin-bottom:5px;margin-top:10px;}
+.pr:last-child{margin-top:15px;}
