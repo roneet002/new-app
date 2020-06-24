@@ -8,7 +8,7 @@ import axios from '../../../src/axios-order'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import Wrapcomponent from '../../hoc/withErorHandling/withErorHandling'
 import {connect} from 'react-redux'
-import * as actionTypes  from '../../store/actions'
+import * as burgerBuilderAction from '../../store/actions/index'
 
 
 class BurgerBuilders extends Component {
@@ -74,17 +74,17 @@ class BurgerBuilders extends Component {
     closeHandler = () => { this.setState({ purchasing: false }) }
     ContinueHandlers = () => {
        
-        const queryparam = [];
-        for(let i in this.state.ingredient){
-            queryparam.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredient[i]))
-        }
-        queryparam.push('price='+ this.state.totalPrice)
-        const querystring = queryparam.join('&');
-        this.props.history.push({
-            pathname: '/checkout',
-            search : '?' + querystring
-        })
-
+        // const queryparam = [];
+        // for(let i in this.state.ingredient){
+        //     queryparam.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredient[i]))
+        // }
+        // queryparam.push('price='+ this.state.totalPrice)
+        // const querystring = queryparam.join('&');
+        // this.props.history.push({
+        //     pathname: '/checkout',
+        //     search : '?' + querystring
+        // })
+this.props.history.push('/checkout')
 
     }
     componentDidMount() {
@@ -158,8 +158,8 @@ const mapsStatetoProps = state =>{
 
 const mapDispatchtoProps = dispatch =>{
 return{
-onIngredientAdded : (ingName) => dispatch({type:actionTypes.ADD_INGREDIENT, ingredientName :ingName}),
-onIngredientRemoved : (ingName) => dispatch({type:actionTypes.REMOVE_INGREDIENT, ingredientName :ingName})
+onIngredientAdded : (ingName) => dispatch(burgerBuilderAction.addIngredient(ingName)),
+onIngredientRemoved : (ingName) => dispatch(burgerBuilderAction.removeIngredient(ingName))
 
 }
 

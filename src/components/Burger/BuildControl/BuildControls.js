@@ -26,8 +26,10 @@ return (
         )
 
 })}
-<button className={classes.OrderButton} disabled = {!props.purchasable} onClick={props.ordered}>Order</button>
-
+<button
+className={classes.OrderButton} 
+disabled = {!props.purchasable} 
+onClick={props.ordered}>Order</button>
 
 </div>
 
