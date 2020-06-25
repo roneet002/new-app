@@ -8,6 +8,7 @@ import axios from '../../../src/axios-order'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import Wrapcomponent from '../../hoc/withErorHandling/withErorHandling'
 import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 import * as burgerBuilderAction from '../../store/actions/index'
 
 
